@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Grand Adventure</title>
+    <link rel="stylesheet" href="./../style.css">
     <style>
         body {
             background-color: #f0f8ff;
@@ -12,6 +13,58 @@
             margin: 0;
             padding: 0;
         }
+    header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1em;
+    text-align: center;
+}
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 15px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    text-decoration: none;
+    padding: 10px;
+    color: #000;
+    font-weight: bold;
+}
+
+nav img {
+    margin-right: 20px;
+}
+
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 1em;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
 
         .story-content {
             max-width: 800px;
@@ -35,9 +88,13 @@
             align-items: center;
         }
 
+        .section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
         .section img {
             max-width: 150px;
-            margin-right: 20px;
+            margin: 0 20px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
@@ -55,6 +112,21 @@
     </style>
 </head>
 <body>
+    <header>
+    <nav>
+        <a href="index.html">
+            <img src="./../images/tiny tales.png" alt="Tiny Tales Logo" style="height: 70px; vertical-align: middle;">
+        </a>
+        <ul>
+            <li><a href="library.html">Story Library</a></li>
+            <li><a href="create.html">Create a Story</a></li>
+            <li><a href="profile.html">Your Profile</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="analytics.html">Story Analytics</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
     <div class="story-content">
         <h1>A Grand Adventure</h1>
 
