@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create a Story</title>
+    <style>
+        body {
+            background-color: #f9f9f9;
+            font-family: 'Comic Sans MS', Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #ff6347;
+            margin-top: 20px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input[type="text"], textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        input[type="file"] {
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px 5px 0 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff6347;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #e55337;
+        }
+
+        #storyPreview, #postedStories {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #storyPreview img, #postedStories img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        hr {
+            margin: 20px 0;
+            border: 0;
+            height: 1px;
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create Your Story</h1>
+    <form id="storyForm">
+        <label for="title">Story Title:</label>
+        <input type="text" id="title" name="title" required><br><br>
+
+        <label for="storyContent">Story Content:</label><br>
+        <textarea id="storyContent" name="storyContent" rows="10" cols="50" required></textarea><br><br>
+
+        <label for="storyImage">Upload Image:</label>
+        <input type="file" id="storyImage" name="storyImage" accept="image/*"><br><br>
+
+        <button type="button" onclick="previewStory()">Preview Story</button>
+        <button type="submit">Post Story</button>
+    </form>
+
+    <h2>Story Preview:</h2>
+    <div id="storyPreview"></div>
+
+    <h2>Your Stories:</h2>
+    <div id="postedStories"></div>
+
+    <script>
+        function previewStory() {
+            const title = document.getElementById('title').value;
+            const content = document.getElementById('storyContent').value;
+            const image = document.getElementById('storyImage').files[0];
+            
+            let previewHTML = `<h3>${title}</h3><p>${content}</p>`;
+            
+            if (image) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    previewHTML += `<img src="${e.target.result}" alt="Story Image" style="max-width: 100%;">`;
+                    document.getElementById('storyPreview').innerHTML = previewHTML;
+                };
+                reader.readAsDataURL(image);
+            } else {
+                document.getElementById('storyPreview').innerHTML = previewHTML;
+            }
+        }
+
+        document.getElementById('storyForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const title = document.getElementById('title').value;
+            const content = document.getElementById('storyContent').value;
+            const image = document.getElementById('storyImage').files[0];
+
+            let storyHTML = `<h3>${title}</h3><p>${content}</p>`;
+            
+            if (image) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    storyHTML += `<img src="${e.target.result}" alt="Story Image" style="max-width: 100%;">`;
+                    saveStory(storyHTML);
+                };
+                reader.readAsDataURL(image);
+            } else {
+                saveStory(storyHTML);
+            }
+        });
+
+        function saveStory(storyHTML) {
+            const postedStories = document.getElementById('postedStories');
+            postedStories.innerHTML += `<div>${storyHTML}</div><hr>`;
+            document.getElementById('storyForm').reset();
+            document.getElementById('storyPreview').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
