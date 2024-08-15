@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interactive Storytelling - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Interactive Storytelling</h1>
+        <nav>
+            <ul>
+                <li><a href="library.html">Story Library</a></li>
+                <li><a href="create.html">Create a Story</a></li>
+                <li><a href="profile.html">Your Profile</a></li>
+                <li><a href="community.html">Community</a></li>
+                <li><a href="analytics.html">Story Analytics</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Featured Stories</h2>
+            <div id="featured-stories" class="story-container">
+                <div class="story" data-description="Join a thrilling adventure across unknown lands.">
+                    <a href="story1.html">
+                        <img src="grand adventure.jpeg" alt="Story 1: A Grand Adventure">
+                    </a>
+                    <p>Story 1: A Grand Adventure</p>
+                </div>
+                <div class="story" data-description="Unravel the secrets of an ancient lost city.">
+                    <img src="mystry of lost city.jpeg" alt="Story 2: The Mystery of the Lost City">
+                    <p>Story 2: The Mystery of the Lost City</p>
+                </div>
+                <div class="story" data-description="Embark on a journey to explore uncharted territories.">
+                    <img src="images/journey.jpg" alt="Story 3: Journey to the Unknown">
+                    <p>Story 3: Journey to the Unknown</p>
+                </div>
+            </div>
+        </section>
+        <section id="story-preview" style="display:none;">
+            <h2>Story Preview</h2>
+            <div id="preview-content"></div>
+            <button id="close-preview">Close Preview</button>
+        </section>
+    </main>
+    <script src="home.js"></script>
+</body>
+</html>
