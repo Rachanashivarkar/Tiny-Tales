@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Story Library - Tiny Tales</title>
+    <link rel="stylesheet" href="./../css/story-lib.css">
+   
+</head>
+<body>
+    <header>
+        <h1>Story Library</h1>
+        <input type="text" id="searchBar" placeholder="Search stories...">
+    </header>
+
+    <section class="categories">
+        <h2>Categories</h2>
+        <div class="category-list">
+            <button onclick="filterStories('Adventure')">Adventure</button>
+            <button onclick="filterStories('Fairy Tales')">Fairy Tales</button>
+            <button onclick="filterStories('Mystery')">Mystery</button>
+            <button onclick="filterStories('Fantasy')">Fantasy</button>
+            <button onclick="filterStories('All')">All</button>
+        </div>
+    </section>
+
+    <section class="featured-stories">
+        <h2>Featured Stories</h2>
+        <div class="story-grid" id="featuredStories">
+            <div class="story-card" data-category="Adventure">
+                <img src="images/adventure1.jpg" alt="Adventure Story">
+                <h3>The Brave Explorer</h3>
+                <p>An exciting adventure story about a brave explorer.</p>
+            </div>
+            <div class="story-card" data-category="Fairy Tales">
+                <img src="images/fairytale1.jpg" alt="Fairy Tale Story">
+                <h3>The Magical Forest</h3>
+                <p>A fairy tale about a magical forest and its secrets.</p>
+            </div>
+            <!-- Add more story cards here -->
+        </div>
+    </section>
+
+    <section class="top-rated-stories">
+        <h2>Top-Rated Stories</h2>
+        <div class="story-grid" id="topRatedStories">
+            <div class="story-card" data-category="Mystery">
+                <img src="images/mystery1.jpg" alt="Mystery Story">
+                <h3>The Hidden Treasure</h3>
+                <p>A thrilling mystery about a hidden treasure.</p>
+            </div>
+            <!-- Add more top-rated story cards here -->
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Tiny Tales - Where Adventures Begin</p>
+    </footer>
+
+    <script src="./../js/style-lib.js"></script>
+</body>
+</html>
